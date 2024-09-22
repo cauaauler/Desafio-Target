@@ -4,16 +4,29 @@ class Program
 {
     static void Main()
     {
-        int INDICE = 12, SOMA = 0, K = 1; 
-        try {
-            while (K < INDICE) {
-                K = K + 1;
-                SOMA = SOMA + K;
-            }
-        } catch (Exception e) {
-            Console.WriteLine("Erro: " + e.Message);
-            Console.WriteLine("StackTrace: " + e.StackTrace);
+        Console.Write("Digite uma string: ");
+        string input = Console.ReadLine()?.ToUpper();
+
+        if (input == null)
+        {
+            Console.WriteLine("Não foi possível ler a entrada.");
+            return;
         }
-        Console.WriteLine(SOMA);
+
+        int qtd = 0;
+        foreach (char caractere in input)
+        {
+            if (caractere == 'A')
+            {
+                qtd++;
+            }
+        }
+
+        if (qtd == 0)
+        {
+            Console.Write("Nenhuma ocorrência da letra a.");
+            return;
+        }
+        Console.WriteLine($"Existem {qtd} ocorrências da letra a.");
     }
 }
